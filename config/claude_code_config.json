@@ -1,0 +1,52 @@
+{
+  "mcpServers": {
+    "koboldcpp": {
+      "command": "python3",
+      "args": ["/path/to/koboldcpp-mcp-server/src/server.py"],
+      "env": {
+        "KOBOLD_URL": "http://localhost:5001",
+        "LOG_LEVEL": "INFO",
+        "AUDIT_LOG": "true",
+        "MCP_HOST": "localhost",
+        "MCP_PORT": "8765",
+        "MAX_CONCURRENT_REQUESTS": "5",
+        "MEMORY_LIMIT_MB": "500",
+        "ENABLE_AUTH": "false",
+        "DATA_SANITIZATION": "true",
+        "MAX_PROMPT_LENGTH": "8192"
+      },
+      "description": "KoboldCpp MCP Server for local AI inference",
+      "capabilities": {
+        "tools": true,
+        "resources": true
+      }
+    }
+  },
+  "instructions": {
+    "setup": [
+      "1. Start KoboldCpp with a model: koboldcpp --model your_model.gguf --port 5001",
+      "2. Update the 'args' path above to point to your koboldcpp-mcp-server installation",
+      "3. Adjust KOBOLD_URL if KoboldCpp is running on a different host/port",
+      "4. Set AUDIT_LOG=true for government/legal compliance environments"
+    ],
+    "usage": [
+      "Available tools:",
+      "- generate_text: Generate text with configurable parameters",
+      "- chat_completion: Multi-turn conversations with system/user/assistant messages",
+      "- test_prompt: Test prompts with multiple parameter variations",
+      "- batch_generate: Process multiple prompts efficiently",
+      "",
+      "Available resources:",
+      "- koboldcpp://model/info: Current model information",
+      "- koboldcpp://server/status: Server status and health"
+    ],
+    "security": [
+      "For government/legal environments:",
+      "- All processing remains local (no external API calls)",
+      "- Enable audit logging with AUDIT_LOG=true",
+      "- Data sanitization is enabled by default",
+      "- Configurable prompt/response length limits",
+      "- Optional authentication with ENABLE_AUTH=true"
+    ]
+  }
+}

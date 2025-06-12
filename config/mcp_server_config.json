@@ -1,0 +1,40 @@
+{
+  "koboldcpp": {
+    "url": "http://localhost:5001",
+    "timeout": 30,
+    "max_retries": 3,
+    "retry_delay": 1.0,
+    "generate_endpoint": "/api/v1/generate",
+    "chat_endpoint": "/api/v1/chat/completions",
+    "model_endpoint": "/api/v1/model",
+    "status_endpoint": "/api/extra/generate/check"
+  },
+  "mcp_server": {
+    "host": "localhost",
+    "port": 8765,
+    "max_connections": 10,
+    "ping_interval": 20,
+    "ping_timeout": 10
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "audit_log": false,
+    "audit_file": "audit.log"
+  },
+  "security": {
+    "enable_auth": false,
+    "auth_token": null,
+    "allowed_origins": ["*"],
+    "data_sanitization": true,
+    "max_prompt_length": 8192,
+    "max_response_length": 4096
+  },
+  "performance": {
+    "max_concurrent_requests": 5,
+    "request_queue_size": 100,
+    "memory_limit_mb": 500,
+    "enable_caching": true,
+    "cache_ttl": 300
+  }
+}
